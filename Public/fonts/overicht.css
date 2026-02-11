@@ -1,0 +1,151 @@
+/* ===== RESET ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 10%, #222 0%, #111 40%, #000 100%);
+    color: white;
+    padding: 20px 30px;
+}
+
+
+/* ===== TOPBAR ===== */
+.topbar {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.topbar button {
+    background: linear-gradient(#4b4b4b, #2e2e2e);
+    border: none;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,.6);
+}
+
+.topbar button:hover {
+    opacity: .9;
+}
+
+.topbar details{
+    background: linear-gradient(#4b4b4b, #2e2e2e);
+    border: none;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,.6);
+}
+
+/* =========================================
+   LAYOUT (FIXED SIDEBAR + FLEXIBLE GRID)
+========================================= */
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 340px; /* links flexibel, rechts vast */
+    gap: 40px;
+    align-items: start;
+}
+
+
+/* ===== CONTENT LINKS ===== */
+.content {
+    min-width: 0; /* voorkomt overflow bugs */
+}
+
+
+/* ===== GRID ===== */
+.grid {
+    display: grid;
+
+    /* responsive kaarten */
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 26px;
+}
+
+
+/* ===== CARD ===== */
+.card {
+    height: 140px;
+    background: #3b3b3b;
+    border-radius: 16px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 6px 14px rgba(0,0,0,.6);
+    transition: transform .15s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.thumb {
+    width: 100%;
+    height: 95px;
+    background: #bdbdbd;
+    border-radius: 10px;
+}
+
+.card p {
+    font-size: 13px;
+    opacity: .9;
+}
+
+
+/* =========================================
+   SIDEBAR (ECHT EIGEN VAK)
+========================================= */
+.sidebar {
+    width: 340px;
+    background: #1b1b1b;
+    padding: 20px;
+    border-radius: 18px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.7);
+
+    position: sticky;
+    top: 20px;
+  height:100%;
+}
+
+
+/* preview */
+.preview {
+    height: 220px;
+    background: #cfcfcf;
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #888;
+}
+
+
+/* bio */
+.bio {
+    background: #4c3aa8;
+    padding: 16px;
+    border-radius: 14px;
+  height:400px;
+}
