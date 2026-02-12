@@ -1,11 +1,16 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
+
+
+
+
 <nav class="topbar">
-        <button>Squad 1</button>
-        <button>Squad 11</button>
-        <button>Naam a → z</button>
-        <button>Naam z → a</button>
-        <details >Favoriet eten ▾</details>
+        <a href="/">Id</a>
+        <a href="/squad-1j">Squad 1J</a>
+        <a href="/squad-1I">Squad 1I</a>
+        <a href="/az">Naam a → z</a>
+        <a href="/za">Naam z → a</a>
+        <details> </details>
     </nav>
 
     <main class="layout">
@@ -14,43 +19,23 @@
         <section class="content">
             <ul class="grid">
 
-                <li class="card">
-                    <img class="thumb">
-                    <p>{{ person.name }}</p>
-                </li>
 
-                <li class="card">
-                    <img class="thumb">
-                    <p>{{ person.name }}</p>
-                </li>
+                {% for person in persons %}
+                    <li class="card">
+                    
+                        {% if person.avatar %}
+                            <img class="thumb" src="{{ person.avatar }}">
+                        {% else %}
+                            <img class="thumb" src="image.png">
+                        {% endif %}
 
-                <li class="card">
-                    <img class="thumb">
-                    <p>{{ person.name }}</p>
-                </li>
 
-                <li class="card">
-                    <img class="thumb">
-                    <p>{{ person.name }}</p>
-                </li>
-                <li class="card">
-                    <img class="thumb">
-                    <p>{{ person.name }}</p>
-                </li>
+                        <p>{{ person.name }}</p>
+                      {{ person.vibe_emoji }}  {{ person.id }} {{ person.fav_emoji }}
+                    </li>
+                {% endfor %}
 
-                <li class="card">
-                    <img class="thumb">
-                    <p>{{ person.name }}</p>
-                </li>
-                <li class="card">
-                    <img class="thumb">
-                    <p>{{ person.name }}</p>
-                </li>
-                
-                <li class="card">
-                    <img class="thumb">
-                    <p>{{ person.name }}</p>
-                </li>
+               
 
             </ul>
         </section>
@@ -71,5 +56,7 @@
         </aside>
 
     </main>
+
+    {% comment %} {{ persons|json }} {% endcomment %}
 
 {% render 'partials/foot.liquid', squads: squads %}
