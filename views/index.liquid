@@ -17,11 +17,11 @@
 
         <!-- LINKER CONTENT -->
         <section class="content">
-            <ul class="grid">
+            <section class="grid">
 
 
                 {% for person in persons %}
-                    <li class="card">
+                    <a href="/student/{{ person.id }}" class="card">
                     
                         {% if person.avatar %}
                             <img class="thumb" src="{{ person.avatar }}">
@@ -31,17 +31,17 @@
 
 
                         <p>{{ person.name }}</p>
-                      {{ person.vibe_emoji }}  {{ person.id }} {{ person.fav_emoji }}
-                    </li>
+                     <p>{{ person.vibe_emoji }}  {{ person.id }} {{ person.fav_emoji }} </p>
+                    </a>
                 {% endfor %}
 
                
 
-            </ul>
+            </section>
         </section>
 
         <!-- RECHTER PANEL (eigen deel) -->
-        <aside class="sidebar">
+        {% comment %} <aside class="sidebar">
 
             <img alt="Foto van huidige squadlid" class="preview">
 
@@ -53,10 +53,8 @@
                 </p>
             </section>
 
-        </aside>
+        </aside> {% endcomment %}
 
     </main>
 
     {% comment %} {{ persons|json }} {% endcomment %}
-
-{% render 'partials/foot.liquid', squads: squads %}

@@ -1,5 +1,66 @@
-{% render 'partials/head.liquid', title: person.name %}
+{% render 'partials/head.liquid', title: 'Squad page' %}
 
-<a href="/">Back</a>
 
-{% render 'partials/foot.liquid', squads: squads %}
+
+
+
+<nav class="topbar">
+        <a href="/">Id</a>
+        <a href="/squad-1j">Squad 1J</a>
+        <a href="/squad-1I">Squad 1I</a>
+        <a href="/az">Naam a → z</a>
+        <a href="/za">Naam z → a</a>
+        <details> </details>
+    </nav>
+
+    <main class="layout">
+
+        <!-- LINKER CONTENT -->
+        <section class="content">
+            <section class="grid">
+
+
+                {% for person in persons %}
+                    <a href="/student/{{ person.id }}" class="card">
+                    
+                        {% if person.avatar %}
+                            <img class="thumb" src="{{ person.avatar }}">
+                        {% else %}
+                            <img class="thumb" src="/image.png">
+                        {% endif %}
+
+
+                        <p>{{ person.name }}</p>
+                     <p>{{ person.vibe_emoji }}  {{ person.id }} {{ person.fav_emoji }} </p>
+                    </a>
+                {% endfor %}
+
+               
+
+            </section>
+        </section>
+
+        <!-- RECHTER PANEL (eigen deel) -->
+        <aside class="sidebar">
+
+             {% if person.avatar %}
+                            <img class="thumb"  src="{{ person.avatar }}">
+                        {% else %}
+                            <img class="thumb" src="/akkxz5ofa3ob1.jpg">
+                        {% endif %}
+
+            <section class="bio">
+                <h1>Bio</h1>
+                {% if person.bio %}
+                            <p>{{ person.bio }}</p>
+                        {% else %}
+                            <p>Hey ik ben een student op de hva. Hier op de hva doe ik de associated degree FDND, waar we leren toegankelijke websites te maken en designen.  </p>
+                            <p>Mijn hobby is {{ person.fav_hobby }}</p>
+                        {% endif %}
+            </section>
+
+        </aside>
+
+    </main>
+
+    {% comment %} {{ persons|json }} {% endcomment %}
