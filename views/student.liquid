@@ -23,10 +23,10 @@
                 {% for person in persons %}
                     <a href="/student/{{ person.id }}" class="card">
                     
-                        {% if person.avatar %}
-                            <img class="thumb" src="{{ person.avatar }}">
+                        {% if person.mugshot %}
+                            <img class="thumb" src="https://fdnd.directus.app/assets/{{ person.mugshot }}?width=500" alt="Profile picture">
                         {% else %}
-                            <img class="thumb" src="/image.png">
+                            <img class="thumb" src="{{ person.avatar }}">
                         {% endif %}
 
 
@@ -43,10 +43,10 @@
         <!-- RECHTER PANEL (eigen deel) -->
         <aside class="sidebar">
 
-             {% if person.avatar %}
-                            <img class="thumb"  src="{{ person.avatar }}">
+             {% if person.mugshot %}
+                            <img class="thumb" src="https://fdnd.directus.app/assets/{{ person.mugshot }}?width=500" alt="Profile picture">
                         {% else %}
-                            <img class="thumb" src="/akkxz5ofa3ob1.jpg">
+                            <img class="thumb" src="{{ person.avatar }}">
                         {% endif %}
 
             <section class="bio">
